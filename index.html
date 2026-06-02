@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monitoramento DHT11</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; padding: 2rem; }
+    h1 { margin-bottom: 1rem; }
+    .card { background: white; display: inline-block; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    .data { font-size: 1.5rem; margin: 1rem 0; }
+    button { padding: 0.8rem 1.5rem; font-size: 1.2rem; border: none; border-radius: 5px; background: #007bff; color: white; cursor: pointer; }
+    button.off { background: red; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Monitoramento</h1>
+    <div class="data">🌡️ Temperatura: <span id="temp">--</span>°C</div>
+    <div class="data">💧 Umidade: <span id="hum">--</span>%</div>
+    <div class="data">💡 LED: <button id="ledBtn" onclick="toggleLED()">Ligar</button></div>
+  </div>
+
+  <script>
+    const serverIP = "http://100.64.0.233"; // Troque pelo IP do seu ESP8266
+
+    let ledOn = false;
+
+    // Função para obter os dados do ESP8266
+    function getData() {
+      fetch(`${serverIP}/get`) // Requisição para o endpoint /get do seu ESP8266
+        .then(response => response.json())
+        .then(data => {
+          // Atualizando os elementos HTML com os dados recebidos
+          document.getElementById("temp").textContent = data.temperatura.toFixed(1);
+          document.getElementById("hum").textContent = data.umidade.toFixed(1);
+          ledOn = data.led === 1; // Atualizando o estado do LED
+          updateButton(); // Atualizando o botão do LED
+        })
+        .catch(error => {
+          console.log("Erro:", error); // Se ocorrer algum erro na requisição
+        });
+    }
+
+    // Função para alternar o estado do LED
+    function toggleLED() {
+      ledOn = !ledOn;
+      fetch(`${serverIP}/led?valor=${ledOn ? "1" : "0"}`) // Envia a requisição para alterar o LED
+        .then(() => updateButton())
+        .catch(error => console.log("Erro ao alterar LED:", error));
+    }
+
+    // Função para atualizar o texto e o estilo do botão do LED
+    function updateButton() {
+      const btn = document.getElementById("ledBtn");
+      btn.textContent = ledOn ? "Desligar" : "Ligar";
+      btn.className = ledOn ? "off" : "";
+    }
+
+    // Chamando a função getData a cada 3 segundos para atualizar os dados
+    setInterval(getData, 3000);
+    
+    // Chamando a função getData quando a página for carregada
+    window.onload = getData;
+  </script>
+</body>
+</html>
