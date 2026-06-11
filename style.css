@@ -1,66 +1,57 @@
-/* Container principal (antiga classe .tela) */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh; /* Ocupa toda a altura da tela */
-    margin: 0;
-    padding: 2rem 2rem 80px 2rem; /* Aumentado o padding inferior para o conteúdo não sumir atrás dos botões */
-    box-sizing: border-box;
-    background: url('R.jfif') center/cover no-repeat;
-}
 
-/* Título */
-.texto {
+.tela{
+    
+    background-image: url(R.jfif);
+    background-size: cover;
+    background-position: center;
+    height: 110vh;
+}
+.texto{
+    justify-self: center;
     color: red;
-    font-size: clamp(2rem, 5vw, 3.5rem); /* Tamanho fluido baseado na tela */
-    text-align: center;
-    margin-bottom: 2rem;
+    font-size: 50px;
+    
 }
-
-/* Visor / Display */
-#display {
-    width: 100%;
-    max-width: 320px; /* Não passa de 320px em telas grandes */
-    height: 60px;
-    margin: 1rem 0;
+#display{
+    font-display:var();
+    height: 50px;
     border-radius: 10px;
     background-color: black;
+    margin: 10px;
     color: red;
-    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Texto diminui em telas pequenas */
-    text-align: center;
-    line-height: 60px;
+    font-size: 40px;
+    width: 300px;
+    position:relative;
+    top:145px;
+    left:800px;
+}
+.btn{
+    font-size: 80px;
+    color:red;
+    position:relative;
+    top:150px;
+    left:800px;
+    background-image: url(abc.jpg);
+    
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    
+}
+.btn1{
+    
+    font-size: 40px;
+    color:red;
+    position:relative;
+    top:149px;
+    left:800px;
+    background-image: url(maioral.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    ;
 }
 
-/* Container para fixar os botões na parte de baixo */
-.container-botoes {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px; /* Altura fixa para a barra de botões */
-    display: flex; /* Coloca os botões lado a lado */
-}
 
-/* Botões (Estilo Base Compartilhado) */
-.btn, .btn1 {
-    flex: 1; /* Faz cada botão ocupar exatamente metade da largura da tela */
-    height: 100%; /* Ocupa toda a altura do container-botoes */
-    color: red;
-    border: none;
-    cursor: pointer;
-    box-sizing: border-box;
-}
 
-/* Botão 1 específico */
-.btn {
-    background: url('abc.jpg') center/cover no-repeat;
-    font-size: clamp(1.8rem, 6vw, 3rem); /* Ajustado para caber em botões divididos */
-}
-
-/* Botão 2 específico */
-.btn1 {
-    background: url('maioral.jpg') center/cover no-repeat;
-    font-size: clamp(1.2rem, 4vw, 2rem); /* Ajustado para caber em botões divididos */
-}
+  
