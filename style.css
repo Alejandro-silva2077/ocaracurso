@@ -1,0 +1,57 @@
+
+.tela{
+    
+    background-image: url(R.jfif);
+    background-size: cover;
+    background-position: center;
+    height: 110vh;
+}
+.texto{
+    justify-self: center;
+    color: red;
+    font-size: 50px;
+    
+}
+#display{
+    font-display:var();
+    height: 50px;
+    border-radius: 10px;
+    background-color: black;
+    margin: 10px;
+    color: red;
+    font-size: 40px;
+    width: 300px;
+    position:relative;
+    top:145px;
+    left:800px;
+}
+.btn{
+    font-size: 80px;
+    color:red;
+    position:relative;
+    top:150px;
+    left:800px;
+    background-image: url(abc.jpg);
+    
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    
+}
+.btn1{
+    
+    font-size: 40px;
+    color:red;
+    position:relative;
+    top:149px;
+    left:800px;
+    background-image: url(maioral.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    ;
+}
+
+
+
+  
