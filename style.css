@@ -23,7 +23,7 @@
     width: 300px;
     position:relative;
     top:145px;
-    left:800px;
+    justify-self: center;
 }
 .btn{
     font-size: 80px;
@@ -44,7 +44,7 @@
     color:red;
     position:relative;
     top:149px;
-    left:800px;
+    justify-self: center;
     background-image: url(maioral.jpg);
     background-size: cover;
     background-position: center;
