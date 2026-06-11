@@ -1,55 +1,48 @@
 
-.tela{
-    
-    background-image: url(R.jfif);
-    background-size: cover;
-    background-position: center;
-    height: 110vh;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 110vh;
+    margin: 0;
+    background: url('R.jfif') center/cover no-repeat;
 }
-.texto{
-    justify-self: center;
+
+.texto {
     color: red;
     font-size: 50px;
-    
+    text-align: center;
 }
-#display{
-    font-display:var();
+
+#display {
     height: 50px;
+    width: 300px;
+    margin: 10px;
     border-radius: 10px;
     background-color: black;
-    margin: 10px;
     color: red;
     font-size: 40px;
-    width: 300px;
-    position:relative;
-    top:145px;
-    justify-self: center;
+    text-align: center;
+    line-height: 50px; /* Centraliza o texto verticalmente */
 }
-.btn{
+
+.btn {
+    height: 100px;
+    background: url('abc.jpg') center/cover no-repeat;
     font-size: 80px;
-    color:red;
-    position:relative;
-    top:150px;
-    left:800px;
-    background-image: url(abc.jpg);
-    
-    background-size: cover;
-    background-position: center;
-    height: 100px;
-    
+    color: red;
+    border: none;
+    cursor: pointer;
 }
-.btn1{
-    
-    font-size: 40px;
-    color:red;
-    position:relative;
-    top:149px;
-    justify-self: center;
-    background-image: url(maioral.jpg);
-    background-size: cover;
-    background-position: center;
+
+.btn1 {
     height: 100px;
-    ;
+    background: url('maioral.jpg') center/cover no-repeat;
+    font-size: 40px;
+    color: red;
+    border: none;
+    cursor: pointer;
 }
 
 
